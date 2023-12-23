@@ -1,4 +1,4 @@
-import { Revenue } from '@/app/dashboard/action';
+import { Revenue } from '@/app/dashboard/types';
 import { generateYAxis } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 // import { Revenue } from '@/app/lib/definitions';
