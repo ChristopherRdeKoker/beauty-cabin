@@ -1,7 +1,7 @@
 import { Card } from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
-import { fetchRevenue, fetchLatestInvoices, fetchCardData } from './action';
+import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '../action';
 
 export default async function DashboardPage() {
   const revenue = await fetchRevenue();
