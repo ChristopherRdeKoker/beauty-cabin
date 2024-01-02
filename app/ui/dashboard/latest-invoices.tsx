@@ -1,5 +1,4 @@
 import { fetchLatestInvoices } from '@/app/dashboard/action';
-import { LatestInvoice } from '@/app/dashboard/types';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
