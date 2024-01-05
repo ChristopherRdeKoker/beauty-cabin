@@ -1,4 +1,4 @@
-import Form from '@/app/ui/invoices/edit-form';
+import EditForm from '@/app/ui/invoices/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchCustomers } from '@/app/lib/data';
 import { fetchInvoiceById } from '@/app/dashboard/action';
@@ -27,7 +27,7 @@ export default async function Page({
           },
         ]}
       />
-      <Form invoice={invoice} customers={customers} />
+      <EditForm invoice={invoice} customers={customers} />
     </main>
   );
 }
