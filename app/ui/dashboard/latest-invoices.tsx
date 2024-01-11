@@ -13,6 +13,11 @@ export default async function LatestInvoices() {
 
         <div className="bg-white px-6">
           {latestInvoices.map((invoice, i) => {
+            const nameArray = invoice.name.split(' ');
+            const firstName = nameArray[0]?.toUpperCase() ?? '';
+            const lastName =
+              nameArray[nameArray.length - 1]?.toUpperCase() ?? '';
+
             return (
               <div
                 key={invoice.id}
@@ -24,13 +29,17 @@ export default async function LatestInvoices() {
                 )}
               >
                 <div className="flex items-center">
-                  <Image
+                  {/* <Image
                     src={invoice.image_url}
                     alt={`${invoice.name}'s profile picture`}
                     className="mr-4 rounded-full"
                     width={32}
                     height={32}
-                  />
+                  /> */}
+
+                  <div className="mr-4 flex h-[36px] w-[36px] items-center justify-center rounded-full border-[0.02rem] border-slate-400 bg-pink-200 text-red-800">
+                    <p>{`${firstName[0]}${lastName[0]}`}</p>
+                  </div>
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
                       {invoice.name}
