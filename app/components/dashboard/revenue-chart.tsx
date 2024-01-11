@@ -12,7 +12,6 @@ import { CalendarIcon } from '@heroicons/react/24/outline';
 export default async function RevenueChart() {
   const chartHeight = 350;
   const revenue = await fetchRevenue();
-  console.log(revenue);
 
   // NOTE: comment in this code when you get to this point in the course
 
