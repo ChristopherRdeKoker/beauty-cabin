@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import AcmeLogo from './ui/acme-logo';
+import AcmeLogo from './components/acme-logo';
 import Image from 'next/image';
 
 export default function Page() {
