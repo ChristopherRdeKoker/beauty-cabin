@@ -12,8 +12,7 @@ export type User = {
 export type Customer = {
   id: string;
   name: string;
-  email: string;
-  image_url: string;
+  contact: string;
 };
 
 export type Invoice = {
@@ -32,8 +31,7 @@ export type Revenue = {
 export type LatestInvoice = {
   id: string;
   name: string;
-  image_url: string;
-  email: string;
+  contact: string;
   amount: string;
 };
 
@@ -46,8 +44,7 @@ export type InvoicesTable = {
   id: string;
   customer_id: string;
   name: string;
-  email: string;
-  image_url: string;
+  contact: string;
   date: string;
   amount: number;
   status: 'pending' | 'paid';
@@ -56,8 +53,7 @@ export type InvoicesTable = {
 export type CustomersTableType = {
   id: string;
   name: string;
-  email: string;
-  image_url: string;
+  contact: string;
   total_invoices: number;
   total_pending: number;
   total_paid: number;
@@ -66,8 +62,7 @@ export type CustomersTableType = {
 export type FormattedCustomersTable = {
   id: string;
   name: string;
-  email: string;
-  image_url: string;
+  contact: string;
   total_invoices: number;
   total_pending: string;
   total_paid: string;

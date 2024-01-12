@@ -6,6 +6,7 @@ import {
 import InvoiceStatus from '@/app/components/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/utils/utils';
 import { fetchFilteredInvoices } from '@/app/dashboard/action';
+import { GenerateNameAbbrImage } from '@/app/utils/imageFunction';
 
 export default async function InvoicesTable({
   query,
@@ -29,16 +30,10 @@ export default async function InvoicesTable({
                 <div className="flex items-center justify-between border-b pb-4">
                   <div>
                     <div className="mb-2 flex items-center">
-                      <Image
-                        src={invoice.image_url}
-                        className="mr-2 rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
+                      <GenerateNameAbbrImage name={invoice.name} />
                       <p>{invoice.name}</p>
                     </div>
-                    <p className="text-sm text-gray-500">{invoice.email}</p>
+                    <p className="text-sm text-gray-500">{invoice.contact}</p>
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
@@ -64,7 +59,7 @@ export default async function InvoicesTable({
                   Customer
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
-                  Email
+                  Contact
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Amount
@@ -88,18 +83,12 @@ export default async function InvoicesTable({
                 >
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
-                      <Image
-                        src={invoice.image_url}
-                        className="rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
+                      <GenerateNameAbbrImage name={invoice.name} />
                       <p>{invoice.name}</p>
                     </div>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {invoice.email}
+                    {invoice.contact}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
                     {formatCurrency(invoice.amount)}
