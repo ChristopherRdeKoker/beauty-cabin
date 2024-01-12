@@ -19,6 +19,7 @@ export type Invoice = {
   id: string;
   customer_id: string;
   amount: number; //stored in cents
+  cost: number;
   date: string;
   status: 'pending' | 'paid';
   location: 'cabin' | 'salon';
@@ -49,6 +50,7 @@ export type InvoicesTable = {
   date: string;
   location: 'cabin' | 'salon';
   amount: number;
+  cost: number;
   status: 'pending' | 'paid';
 };
 
@@ -79,6 +81,7 @@ export type InvoiceForm = {
   id: string;
   customer_id: string;
   amount: number;
+  cost: number;
   status: 'pending' | 'paid';
   location: 'cabin' | 'salon';
 };

@@ -66,6 +66,7 @@ const invoices = [
   {
     customer_id: customers[0].id,
     amount: 15795,
+    cost: 50,
     status: 'pending',
     date: '2022-12-06',
     location: 'salon',
@@ -73,6 +74,8 @@ const invoices = [
   {
     customer_id: customers[1].id,
     amount: 20348,
+    cost: 50,
+
     status: 'pending',
     date: '2022-11-14',
     location: 'salon',
@@ -80,6 +83,8 @@ const invoices = [
   {
     customer_id: customers[4].id,
     amount: 3040,
+    cost: 50,
+
     status: 'paid',
     date: '2022-10-29',
     location: 'salon',
@@ -87,6 +92,8 @@ const invoices = [
   {
     customer_id: customers[3].id,
     amount: 44800,
+    cost: 50,
+
     status: 'paid',
     date: '2023-09-10',
     location: 'salon',
@@ -94,6 +101,8 @@ const invoices = [
   {
     customer_id: customers[5].id,
     amount: 34577,
+    cost: 50,
+
     status: 'pending',
     location: 'salon',
 
@@ -102,6 +111,8 @@ const invoices = [
   {
     customer_id: customers[7].id,
     amount: 54246,
+    cost: 50,
+
     status: 'pending',
     location: 'salon',
 
@@ -109,7 +120,9 @@ const invoices = [
   },
   {
     customer_id: customers[6].id,
-    amount: 666,
+    amount: 689,
+    cost: 50,
+
     status: 'pending',
     location: 'salon',
 
@@ -118,6 +131,8 @@ const invoices = [
   {
     customer_id: customers[3].id,
     amount: 32545,
+    cost: 50,
+
     status: 'paid',
     location: 'salon',
 
@@ -126,6 +141,8 @@ const invoices = [
   {
     customer_id: customers[4].id,
     amount: 1250,
+    cost: 50,
+
     location: 'salon',
 
     status: 'paid',
@@ -134,23 +151,23 @@ const invoices = [
   {
     customer_id: customers[5].id,
     amount: 8546,
+    cost: 50,
     location: 'salon',
-
     status: 'paid',
     date: '2023-06-07',
   },
   {
     customer_id: customers[1].id,
     amount: 500,
+    cost: 50,
     status: 'paid',
     location: 'salon',
-
     date: '2023-08-19',
   },
   {
     customer_id: customers[5].id,
     location: 'salon',
-
+    cost: 50,
     amount: 8945,
     status: 'paid',
     date: '2023-06-03',
@@ -158,23 +175,23 @@ const invoices = [
   {
     customer_id: customers[2].id,
     amount: 8945,
+    cost: 50,
     location: 'salon',
-
     status: 'paid',
     date: '2023-06-18',
   },
   {
     customer_id: customers[0].id,
     amount: 8945,
+    cost: 50,
     location: 'salon',
-
     status: 'paid',
     date: '2023-10-04',
   },
   {
     customer_id: customers[2].id,
     location: 'salon',
-
+    cost: 50,
     amount: 1000,
     status: 'paid',
     date: '2022-06-05',
