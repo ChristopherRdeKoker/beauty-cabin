@@ -94,6 +94,7 @@ export async function fetchFilteredInvoices(
         invoices.amount,
         invoices.date,
         invoices.status,
+        invoices.location,
         customers.name,
         customers.contact
       FROM invoices
@@ -102,6 +103,8 @@ export async function fetchFilteredInvoices(
         customers.name ILIKE ${`%${query}%`} OR
         customers.contact ILIKE ${`%${query}%`} OR
         invoices.amount::text ILIKE ${`%${query}%`} OR
+        invoices.location::text ILIKE ${`%${query}%`} OR
+
         invoices.date::text ILIKE ${`%${query}%`} OR
         invoices.status ILIKE ${`%${query}%`}
       ORDER BY invoices.date DESC
@@ -125,6 +128,8 @@ export async function fetchInvoicesPages(query: string) {
     WHERE
       customers.name ILIKE ${`%${query}%`} OR
       customers.contact ILIKE ${`%${query}%`} OR
+      invoices.location::text ILIKE ${`%${query}%`} OR
+
       invoices.amount::text ILIKE ${`%${query}%`} OR
       invoices.date::text ILIKE ${`%${query}%`} OR
       invoices.status ILIKE ${`%${query}%`}
@@ -179,7 +184,8 @@ export async function fetchInvoiceById(id: string) {
         invoices.id,
         invoices.customer_id,
         invoices.amount,
-        invoices.status
+        invoices.status,
+        invoices.location
       FROM invoices
       WHERE invoices.id = ${id};
     `;

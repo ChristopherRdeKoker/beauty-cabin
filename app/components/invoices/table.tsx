@@ -7,6 +7,7 @@ import InvoiceStatus from '@/app/components/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/utils/utils';
 import { fetchFilteredInvoices } from '@/app/dashboard/action';
 import { GenerateNameAbbrImage } from '@/app/utils/imageFunction';
+import InvoiceLocation from './location';
 
 export default async function InvoicesTable({
   query,
@@ -70,6 +71,9 @@ export default async function InvoicesTable({
                 <th scope="col" className="px-3 py-5 font-medium">
                   Status
                 </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Location
+                </th>
                 <th scope="col" className="relative py-3 pl-6 pr-3">
                   <span className="sr-only">Edit</span>
                 </th>
@@ -98,6 +102,9 @@ export default async function InvoicesTable({
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
                     <InvoiceStatus status={invoice.status} />
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-3">
+                    <InvoiceLocation location={invoice.location} />
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">

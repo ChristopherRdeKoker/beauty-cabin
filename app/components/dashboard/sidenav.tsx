@@ -11,8 +11,10 @@ export default function SideNav() {
         className="mb-2 flex h-20 items-end justify-start rounded-md bg-red-400 px-2 py-4 md:h-40"
         href="/"
       >
-        <div className="flex w-32 flex-col items-center justify-center gap-2 text-white md:w-40">
+        <div className="flex w-32 flex-col items-start gap-2 pl-2 text-white md:w-40">
           {/* <AcmeLogo /> */}
+          <h3 className="text-4xl font-bold">The</h3>
+
           <h3 className="text-4xl font-bold">Beauty</h3>
           <h3 className="text-4xl font-bold">Cabin</h3>
         </div>
