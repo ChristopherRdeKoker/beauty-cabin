@@ -79,6 +79,8 @@ export async function updateInvoice(
   const validatedFields = CreateInvoiceSchema.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
+    cost: formData.get('cost'),
+    location: formData.get('location'),
     status: formData.get('status'),
   });
 
@@ -89,13 +91,14 @@ export async function updateInvoice(
     };
   }
 
-  const { amount, customerId, status } = validatedFields.data;
+  const { amount, customerId, status, cost, location } = validatedFields.data;
 
   const amountInCents = amount * 100;
+  const costInCents = cost * 100;
 
   try {
     await sql`
-    UPDATE invoices SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status} WHERE id = ${id}
+    UPDATE invoices SET customer_id = ${customerId}, amount = ${amountInCents}, cost = ${costInCents}, location = ${location}, status = ${status} WHERE id = ${id}
     `;
   } catch (error) {
     return {

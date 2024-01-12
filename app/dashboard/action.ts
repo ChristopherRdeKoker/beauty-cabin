@@ -202,6 +202,7 @@ export async function fetchInvoiceById(id: string) {
       ...invoice,
       // Convert amount from cents to dollars
       amount: invoice.amount / 100,
+      cost: invoice.cost / 100,
     }));
 
     return invoice[0];
