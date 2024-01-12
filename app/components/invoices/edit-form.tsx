@@ -1,7 +1,7 @@
 'use client';
 import { updateInvoice } from '@/app/dashboard/invoices/action';
 
-import { CustomerField, InvoiceForm } from '@/app/lib/definitions';
+import { CustomerField, InvoiceForm } from '@/app/utils/definitions';
 import {
   CheckIcon,
   ClockIcon,

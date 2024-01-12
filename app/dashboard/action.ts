@@ -1,13 +1,13 @@
 'use server';
 import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
-import { formatCurrency } from '../lib/utils';
+import { formatCurrency } from '../utils/utils';
 import { LatestInvoiceRaw, Revenue } from './types';
 import {
   CustomersTableType,
   InvoiceForm,
   InvoicesTable,
-} from '../lib/definitions';
+} from '../utils/definitions';
 
 export async function fetchRevenue() {
   noStore();
