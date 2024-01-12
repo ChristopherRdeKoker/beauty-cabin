@@ -13,6 +13,10 @@ const FormSchema = z.object({
   amount: z.coerce
     .number()
     .gt(0, { message: 'Please enter an amount greater than $0' }),
+  cost: z.coerce.number(),
+  location: z.enum(['cabin', 'salon'], {
+    invalid_type_error: 'Please select an invoice location',
+  }),
   status: z.enum(['pending', 'paid'], {
     invalid_type_error: 'Please select an invoice status',
   }),
@@ -25,6 +29,8 @@ export type State = {
   errors?: {
     customerId?: string[];
     amount?: string[];
+    cost?: string[];
+    location?: string[];
     status?: string[];
   };
   message?: string | null;
@@ -34,6 +40,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
   const validatedFields = CreateInvoiceSchema.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
+    cost: formData.get('cost'),
+    location: formData.get('location'),
     status: formData.get('status'),
   });
 
@@ -43,15 +51,16 @@ export async function createInvoice(prevState: State, formData: FormData) {
       message: 'Missing Fields. Failed to Create Invoice',
     };
   }
-  const { amount, customerId, status } = validatedFields.data;
+  const { amount, customerId, status, cost, location } = validatedFields.data;
 
   const amountInCents = amount * 100;
+  const costInCents = cost * 100;
   const date = new Date().toISOString().split('T')[0];
 
   try {
     await sql`
-      INSERT INTO invoices (customer_id, amount, status, date)
-      VALUES (${customerId},${amountInCents}, ${status}, ${date})
+      INSERT INTO invoices (customer_id, amount, cost, status,location, date)
+      VALUES (${customerId},${amountInCents}, ${costInCents} ,${status},${location}, ${date})
       `;
   } catch (error) {
     return {
